@@ -3,157 +3,848 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>J&A Experiences | Your Night. Already Sorted.</title>
-  <meta name="description" content="Premium nightlife experiences with events, entry, transport options and unforgettable memories." />
+
+  <meta
+    name="description"
+    content="Premium nightlife experiences with events, entry, transport options and unforgettable memories."
+  />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
     :root{
-      --black:#050505; --soft-black:#0b0b0b; --gold:#d4af37; --gold-2:#f6e7a1;
-      --purple:#6b21ab; --purple-2:#9d4edd; --white:#ffffff; --muted:#cfcfcf;
+      --black:#050505;
+      --soft-black:#0b0b0b;
+      --gold:#d4af37;
+      --gold-2:#f6e7a1;
+      --purple:#6b21ab;
+      --purple-2:#9d4edd;
+      --white:#ffffff;
+      --muted:#cfcfcf;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:'Montserrat',system-ui,sans-serif;background:var(--black);color:var(--white);line-height:1.6;overflow-x:hidden}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(1120px,92%);margin:auto}
-    .gold{color:var(--gold)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border:1px solid var(--gold);border-radius:999px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem;transition:.25s;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#111;box-shadow:0 0 35px rgba(212,175,55,.25)}
-    .btn.secondary{background:transparent;color:var(--white)}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(212,175,55,.45)}
-    header{position:fixed;top:0;left:0;width:100%;z-index:10;background:rgba(5,5,5,.78);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,175,55,.18)}
-    nav{height:76px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
-    .brand img{width:52px;height:52px;border-radius:50%;object-fit:cover}
-    .links{display:flex;gap:26px;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#ddd}
-    .links a:hover{color:var(--gold)}
-    .hero{min-height:100vh;display:grid;place-items:center;padding:120px 0 70px;position:relative;background:
-      radial-gradient(circle at 18% 40%,rgba(157,78,221,.34),transparent 28%),
-      radial-gradient(circle at 85% 35%,rgba(212,175,55,.25),transparent 28%),
-      linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.92)),url('assets/post-launch.png') center/cover no-repeat}
-    .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#050505 0%,transparent 35%);pointer-events:none}
-    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
-    .eyebrow{color:var(--gold);font-weight:800;letter-spacing:.28em;text-transform:uppercase;font-size:.78rem;margin-bottom:18px}
-    h1{font-size:clamp(3rem,7vw,6.8rem);line-height:.9;text-transform:uppercase;letter-spacing:-.06em;font-weight:900}
-    h1 span{display:block;color:var(--gold)}
-    .hero p{max-width:620px;margin:24px 0 34px;color:#e6e6e6;font-size:1.12rem}
-    .actions{display:flex;gap:14px;flex-wrap:wrap}
-    .hero-card{border:1px solid rgba(212,175,55,.34);background:rgba(0,0,0,.55);border-radius:28px;padding:22px;box-shadow:0 0 60px rgba(0,0,0,.45)}
-    .hero-card img{border-radius:22px}
-    section{padding:92px 0;border-top:1px solid rgba(255,255,255,.06)}
-    .section-title{max-width:760px;margin-bottom:42px}
-    .section-title h2{font-size:clamp(2rem,4vw,4rem);line-height:1;text-transform:uppercase;letter-spacing:-.04em}
-    .section-title p{color:var(--muted);margin-top:14px;font-size:1.05rem}
-    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    .service{padding:28px;border:1px solid rgba(212,175,55,.22);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
-    .service .icon{font-size:2rem;margin-bottom:14px;color:var(--gold)}
-    .service h3{text-transform:uppercase;font-size:1rem;letter-spacing:.08em;color:var(--gold);margin-bottom:8px}
-    .service p{color:#d7d7d7;font-size:.92rem}
-    .feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:center}
-    .feature img,.gallery img{border-radius:26px;border:1px solid rgba(212,175,55,.22);box-shadow:0 0 45px rgba(0,0,0,.35)}
-    .feature ul{list-style:none;margin:26px 0;display:grid;gap:14px}
-    .feature li{padding:16px 18px;border-left:3px solid var(--gold);background:rgba(255,255,255,.04);border-radius:12px;color:#e6e6e6}
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .gallery img:nth-child(4),.gallery img:nth-child(5){grid-column:span 1}
-    .booking{background:
-      radial-gradient(circle at 15% 20%,rgba(107,33,171,.38),transparent 28%),
-      radial-gradient(circle at 80% 80%,rgba(212,175,55,.18),transparent 28%),#070707}
-    form{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
-    input,select,textarea{width:100%;padding:16px 18px;border-radius:14px;border:1px solid rgba(212,175,55,.25);background:#0f0f0f;color:white;font:inherit}
-    textarea{grid-column:1/-1;min-height:130px;resize:vertical}.full{grid-column:1/-1}
-    footer{padding:42px 0;text-align:center;color:#aaa;border-top:1px solid rgba(212,175,55,.18)}
-    footer img{width:90px;height:90px;object-fit:cover;border-radius:50%;margin:0 auto 16px}
-    @media (max-width:900px){.links{display:none}.hero-grid,.feature{grid-template-columns:1fr}.services,.gallery{grid-template-columns:1fr 1fr}form{grid-template-columns:1fr}.hero-card{max-width:520px}.container{width:min(94%,1120px)}}
-    @media (max-width:560px){nav{height:68px}.brand span{font-size:.8rem}.services,.gallery{grid-template-columns:1fr}.hero{padding-top:105px}.actions .btn{width:100%}section{padding:70px 0}}
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Montserrat',system-ui,sans-serif;
+      background:var(--black);
+      color:var(--white);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(1120px,92%);
+      margin:auto;
+    }
+
+    .gold{
+      color:var(--gold);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 24px;
+      border:1px solid var(--gold);
+      border-radius:999px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:.82rem;
+      transition:.25s;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      color:#111;
+      box-shadow:0 0 35px rgba(212,175,55,.25);
+    }
+
+    .btn.secondary{
+      background:transparent;
+      color:var(--white);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 0 50px rgba(212,175,55,.45);
+    }
+
+    /* HEADER */
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+      background:rgba(5,5,5,.78);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(212,175,55,.18);
+    }
+
+    nav{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .brand img{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      object-fit:cover;
+    }
+
+    .nav-menu{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+
+    .links{
+      display:flex;
+      gap:26px;
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:#ddd;
+    }
+
+    .links a:hover{
+      color:var(--gold);
+    }
+
+    .jump-select{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(212,175,55,.35);
+      background:#0f0f0f;
+      color:var(--white);
+      font:inherit;
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      cursor:pointer;
+    }
+
+    .jump-select:focus{
+      outline:2px solid var(--gold);
+      outline-offset:3px;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding:120px 0 70px;
+      position:relative;
+
+      background:
+        radial-gradient(circle at 18% 40%,rgba(157,78,221,.34),transparent 28%),
+        radial-gradient(circle at 85% 35%,rgba(212,175,55,.25),transparent 28%),
+        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.92)),
+        url('assets/post-launch.png') center/cover no-repeat;
+    }
+
+    .hero:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,#050505 0%,transparent 35%);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:52px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      color:var(--gold);
+      font-weight:800;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:clamp(3rem,7vw,6.8rem);
+      line-height:.9;
+      text-transform:uppercase;
+      letter-spacing:-.06em;
+      font-weight:900;
+    }
+
+    h1 span{
+      display:block;
+      color:var(--gold);
+    }
+
+    .hero p{
+      max-width:620px;
+      margin:24px 0 34px;
+      color:#e6e6e6;
+      font-size:1.12rem;
+    }
+
+    .actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .hero-card{
+      border:1px solid rgba(212,175,55,.34);
+      background:rgba(0,0,0,.55);
+      border-radius:28px;
+      padding:22px;
+      box-shadow:0 0 60px rgba(0,0,0,.45);
+    }
+
+    .hero-card img{
+      border-radius:22px;
+    }
+
+    /* SECTIONS */
+    section{
+      padding:92px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    .section-title{
+      max-width:760px;
+      margin-bottom:42px;
+    }
+
+    .section-title h2{
+      font-size:clamp(2rem,4vw,4rem);
+      line-height:1;
+      text-transform:uppercase;
+      letter-spacing:-.04em;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      margin-top:14px;
+      font-size:1.05rem;
+    }
+
+    /* SERVICES */
+    .services{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .service{
+      padding:28px;
+      border:1px solid rgba(212,175,55,.22);
+      border-radius:24px;
+      background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.02)
+      );
+    }
+
+    .service .icon{
+      font-size:2rem;
+      margin-bottom:14px;
+      color:var(--gold);
+    }
+
+    .service h3{
+      text-transform:uppercase;
+      font-size:1rem;
+      letter-spacing:.08em;
+      color:var(--gold);
+      margin-bottom:8px;
+    }
+
+    .service p{
+      color:#d7d7d7;
+      font-size:.92rem;
+    }
+
+    /* FEATURE */
+    .feature{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:42px;
+      align-items:center;
+    }
+
+    .feature img,
+    .gallery img{
+      border-radius:26px;
+      border:1px solid rgba(212,175,55,.22);
+      box-shadow:0 0 45px rgba(0,0,0,.35);
+    }
+
+    .feature ul{
+      list-style:none;
+      margin:26px 0;
+      display:grid;
+      gap:14px;
+    }
+
+    .feature li{
+      padding:16px 18px;
+      border-left:3px solid var(--gold);
+      background:rgba(255,255,255,.04);
+      border-radius:12px;
+      color:#e6e6e6;
+    }
+
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    /* BOOKING */
+    .booking{
+      background:
+        radial-gradient(circle at 15% 20%,rgba(107,33,171,.38),transparent 28%),
+        radial-gradient(circle at 80% 80%,rgba(212,175,55,.18),transparent 28%),
+        #070707;
+    }
+
+    form{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+      margin-top:28px;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      padding:16px 18px;
+      border-radius:14px;
+      border:1px solid rgba(212,175,55,.25);
+      background:#0f0f0f;
+      color:white;
+      font:inherit;
+    }
+
+    textarea{
+      grid-column:1/-1;
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .full{
+      grid-column:1/-1;
+    }
+
+    /* FOOTER */
+    footer{
+      padding:42px 0;
+      text-align:center;
+      color:#aaa;
+      border-top:1px solid rgba(212,175,55,.18);
+    }
+
+    footer img{
+      width:90px;
+      height:90px;
+      object-fit:cover;
+      border-radius:50%;
+      margin:0 auto 16px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width:900px){
+
+      .links{
+        display:none;
+      }
+
+      .hero-grid,
+      .feature{
+        grid-template-columns:1fr;
+      }
+
+      .services,
+      .gallery{
+        grid-template-columns:1fr 1fr;
+      }
+
+      form{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card{
+        max-width:520px;
+      }
+
+      .container{
+        width:min(94%,1120px);
+      }
+
+      .jump-select{
+        max-width:180px;
+      }
+    }
+
+    @media (max-width:560px){
+
+      nav{
+        height:68px;
+      }
+
+      .brand span{
+        font-size:.8rem;
+      }
+
+      .services,
+      .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding-top:105px;
+      }
+
+      .actions .btn{
+        width:100%;
+      }
+
+      section{
+        padding:70px 0;
+      }
+
+      .jump-select{
+        width:150px;
+        font-size:.7rem;
+      }
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- HEADER -->
   <header>
     <div class="container">
+
       <nav>
-        <a class="brand" href="#home"><img src="assets/logo1.png" alt="J&A Experiences logo"><span>J&A Experiences</span></a>
-        <div class="links"><a href="#about">About</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#book">Book</a></div>
+
+        <a class="brand" href="#home">
+          <img src="assets/logo1.png" alt="J&A Experiences logo">
+          <span>J&A Experiences</span>
+        </a>
+
+        <div class="nav-menu">
+
+          <div class="links">
+            <a href="#about">About</a>
+            <a href="#events">Events</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#book">Book</a>
+          </div>
+
+          <select
+            class="jump-select"
+            aria-label="Jump to section"
+            onchange="if(this.value) window.location.href=this.value"
+          >
+            <option value="">Jump to...</option>
+            <option value="#home">Home</option>
+            <option value="#about">About</option>
+            <option value="#events">Events</option>
+            <option value="#gallery">Gallery</option>
+            <option value="#book">Book</option>
+          </select>
+
+        </div>
+
       </nav>
+
     </div>
   </header>
 
+  <!-- HERO -->
   <main id="home" class="hero">
+
     <div class="container hero-grid">
+
       <div>
-        <div class="eyebrow">Premium nightlife experiences</div>
-        <h1>Your night? <span>Already sorted!</span></h1>
-        <p>We create premium nightlife experiences with event planning, access, transport options and unforgettable moments - all handled for you.</p>
-        <div class="actions"><a class="btn" href="#book">Book your experience</a><a class="btn secondary" href="#events">View events coming soon</a></div>
+
+        <div class="eyebrow">
+          Premium nightlife experiences
+        </div>
+
+        <h1>
+          Your night?
+          <span>Already sorted!</span>
+        </h1>
+
+        <p>
+          We create premium nightlife experiences with
+          event planning, access, transport options and
+          unforgettable moments — all handled for you.
+        </p>
+
+        <div class="actions">
+          <a class="btn" href="#book">
+            Book your experience
+          </a>
+
+          <a class="btn secondary" href="#events">
+            View events coming soon
+          </a>
+        </div>
+
       </div>
-      <div class="hero-card"><img src="assets/logo.png" alt="J&A Experiences badge"></div>
+
+      <div class="hero-card">
+        <img src="assets/logo.png" alt="J&A Experiences badge">
+      </div>
+
     </div>
+
   </main>
 
+  <!-- ABOUT -->
   <section id="about">
+
     <div class="container">
-      <div class="section-title"><div class="eyebrow">What we do</div><h2>Premium nights. Zero stress.</h2><p>From birthdays and student nights to corporate groups and private celebrations, J&A Experiences makes nightlife simple, stylish and memorable.</p></div>
+
+      <div class="section-title">
+
+        <div class="eyebrow">
+          What we do
+        </div>
+
+        <h2>
+          Premium nights. Zero stress.
+        </h2>
+
+        <p>
+          From birthdays and student nights
+          to corporate groups and private celebrations,
+          J&A Experiences makes nightlife simple,
+          stylish and memorable.
+        </p>
+
+      </div>
+
       <div class="services">
-        <div class="service"><div class="icon">📅</div><h3>Planned for you</h3><p>We handle the details so your group can focus on enjoying the night.</p></div>
-        <div class="service"><div class="icon">🎟️</div><h3>Entry included</h3><p>Access arranged in advance with no confusion at the door.</p></div>
-        <div class="service"><div class="icon">🚌</div><h3>Transport options</h3><p>Convenient pick-up and drop-off options for smoother nights.</p></div>
-        <div class="service"><div class="icon">👥</div><h3>Unforgettable</h3><p>Top venues, great music and memories that last long after the night ends.</p></div>
+
+        <div class="service">
+          <div class="icon">📅</div>
+          <h3>Planned for you</h3>
+          <p>
+            We handle the details so your group
+            can focus on enjoying the night.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="icon">🎟️</div>
+          <h3>Entry included</h3>
+          <p>
+            Access arranged in advance
+            with no confusion at the door.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="icon">🚌</div>
+          <h3>Transport options</h3>
+          <p>
+            Convenient pick-up and drop-off
+            options for smoother nights.
+          </p>
+        </div>
+
+        <div class="service">
+          <div class="icon">👥</div>
+          <h3>Unforgettable</h3>
+          <p>
+            Top venues, great music and memories
+            that last long after the night ends.
+          </p>
+        </div>
+
       </div>
+
     </div>
+
   </section>
 
+  <!-- EVENTS -->
   <section id="events">
+
     <div class="container feature">
-      <img src="assets/post-launch.png" alt="J&A Experiences launch poster">
+
+      <img
+        src="assets/post-launch.png"
+        alt="J&A Experiences launch poster"
+      >
+
       <div>
-        <div class="eyebrow">First J&A Experience</div><h2>Coming Soon..</h2>
-        <p>Live DJs, premium venues, drink deals and good vibes. This is not just a night out — this is a J&A Experience.</p>
-        <ul><li>Live DJs and high-energy music</li><li>Premium venue access</li><li>Entry included with transport options</li><li>Limited spots for a premium feel</li></ul>
-        <a class="btn" href="#book">Secure your spot</a>
+
+        <div class="eyebrow">
+          First J&A Experience
+        </div>
+
+        <h2>
+          Coming Soon..
+        </h2>
+
+        <p>
+          Live DJs, premium venues,
+          drink deals and good vibes.
+          This is not just a night out —
+          this is a J&A Experience.
+        </p>
+
+        <ul>
+          <li>Live DJs and high-energy music</li>
+          <li>Premium venue access</li>
+          <li>Entry included with transport options</li>
+          <li>Limited spots for a premium feel</li>
+        </ul>
+
+        <a class="btn" href="#book">
+          Secure your spot
+        </a>
+
       </div>
+
     </div>
+
   </section>
 
+  <!-- VIP -->
   <section>
+
     <div class="container feature">
+
       <div>
-        <div class="eyebrow">The VIP feeling</div><h2>It’s not just about going out. It’s how you arrive.</h2>
-        <p>Built for people who do not do average. Premium venues, VIP treatment and nights designed to feel effortless from start to finish.</p>
-        <a class="btn secondary" href="#book">Plan a group night</a>
+
+        <div class="eyebrow">
+          The VIP feeling
+        </div>
+
+        <h2>
+          It’s not just about going out.
+          It’s how you arrive.
+        </h2>
+
+        <p>
+          Built for people who do not do average.
+          Premium venues, VIP treatment and nights
+          designed to feel effortless from start to finish.
+        </p>
+
+        <a class="btn secondary" href="#book">
+          Plan a group night
+        </a>
+
       </div>
-      <img src="assets/post-vip.png" alt="VIP pass J&A Experiences poster">
+
+      <img
+        src="assets/post-vip.png"
+        alt="VIP pass J&A Experiences poster"
+      >
+
     </div>
+
   </section>
 
+  <!-- GALLERY -->
   <section id="gallery">
+
     <div class="container">
-      <div class="section-title"><div class="eyebrow">Brand in action</div><h2>Experiences that bring people together.</h2><p>A preview of the J&A launch visuals and the energy behind the brand.</p></div>
-      <div class="gallery">
-        <img src="assets/post-value.png" alt="J&A Experiences service poster">
-        <img src="assets/post-event.png" alt="R&B and Afrobeats poster">
-        <img src="assets/post-community.png" alt="Community poster">
+
+      <div class="section-title">
+
+        <div class="eyebrow">
+          Brand in action
+        </div>
+
+        <h2>
+          Experiences that bring people together.
+        </h2>
+
+        <p>
+          A preview of the J&A launch visuals
+          and the energy behind the brand.
+        </p>
+
       </div>
+
+      <div class="gallery">
+
+        <img
+          src="assets/post-value.png"
+          alt="J&A Experiences service poster"
+        >
+
+        <img
+          src="assets/post-event.png"
+          alt="R&B and Afrobeats poster"
+        >
+
+        <img
+          src="assets/post-community.png"
+          alt="Community poster"
+        >
+
+      </div>
+
     </div>
+
   </section>
 
+  <!-- BOOK -->
   <section id="book" class="booking">
+
     <div class="container">
-      <div class="section-title"><div class="eyebrow">Book now</div><h2>Tell us about your night.</h2><p>This will be active after launch. Get ready to secure your spot!</p></div>
-      <form action="mailto:info@jaexperiences.com" method="post" enctype="text/plain">
-        <input name="name" placeholder="Your name" required>
-        <input name="email" type="email" placeholder="Email address" required>
-        <input name="phone" placeholder="Phone / WhatsApp">
-        <select name="experience"><option>Choose experience type</option><option>R&B & Afrobeats Night</option><option>Birthday / Group Night</option><option>Corporate / Private Event</option><option>Transport + Entry Package</option></select>
-        <textarea name="message" placeholder="Tell us your date, group size, city and anything you want included..."></textarea>
-        <button class="btn full" type="submit">Send enquiry</button>
+
+      <div class="section-title">
+
+        <div class="eyebrow">
+          Book now
+        </div>
+
+        <h2>
+          Tell us about your night.
+        </h2>
+
+        <p>
+          This will be active after launch.
+          Get ready to secure your spot!
+        </p>
+
+      </div>
+
+      <form
+        action="mailto:info@jaexperiences.com"
+        method="post"
+        enctype="text/plain"
+      >
+
+        <input
+          name="name"
+          placeholder="Your name"
+          required
+        >
+
+        <input
+          name="email"
+          type="email"
+          placeholder="Email address"
+          required
+        >
+
+        <input
+          name="phone"
+          placeholder="Phone / WhatsApp"
+        >
+
+        <select name="experience">
+          <option>Choose experience type</option>
+          <option>R&B & Afrobeats Night</option>
+          <option>Birthday / Group Night</option>
+          <option>Corporate / Private Event</option>
+          <option>Transport + Entry Package</option>
+        </select>
+
+        <textarea
+          name="message"
+          placeholder="Tell us your date, group size, city and anything you want included..."
+        ></textarea>
+
+        <button class="btn full" type="submit">
+          Send enquiry
+        </button>
+
       </form>
+
     </div>
+
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="container"><img src="assets/logo1.png" alt="J&A Experiences logo"><p><strong>J&A Experiences</strong></p><p>Your night. Already sorted.</p><p style="margin-top:12px">Instagram: @ja.experiences · Email: enquiries@jandaexperiences.co.uk</p></div>
-    <div class="container"> <p>© J&A Experiences 2026. All Rights Reserved.</p></div>
+
+    <div class="container">
+
+      <img
+        src="assets/logo1.png"
+        alt="J&A Experiences logo"
+      >
+
+      <p><strong>J&A Experiences</strong></p>
+
+      <p>
+        Your night. Already sorted.
+      </p>
+
+      <p style="margin-top:12px">
+        Instagram: @ja.experiences ·
+        Email: enquiries@jandaexperiences.co.uk
+      </p>
+
+    </div>
+
+    <div class="container">
+      <p>
+        © J&A Experiences 2026.
+        All Rights Reserved.
+      </p>
+    </div>
+
   </footer>
+
 </body>
 </html>
